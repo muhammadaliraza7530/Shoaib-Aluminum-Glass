@@ -8,35 +8,35 @@ export const img = {
   logo: "/logo.jpg",
 
   // Photoreal hero / feature photography
-  spanishVilla: "/homes/hero-spanish.jpg",
-  luxuryVilla: "/homes/hero-villa.jpg",
-  luxuryHouse: "/homes/hero-luxury.jpg",
-  courtyard: "/homes/hero-courtyard.jpg",
+  spanishVilla: "/homes/img2.jpeg",
+  luxuryVilla: "/homes/img1.jpeg",
+  luxuryHouse: "/homes/img3.jpeg",
+  courtyard: "/homes/img4.jpeg",
 
   // Real house photography
-  modernVilla: "/homes/home-1.jpg",
-  classicMansion: "/homes/home-2.jpg",
-  greyClassic: "/homes/home-3.jpg",
-  completedVilla: "/homes/home-4.jpg",
-  brickFront: "/homes/home-5.jpg",
+  modernVilla: "/homes/img5.jpeg",
+  classicMansion: "/homes/img6.jpeg",
+  greyClassic: "/homes/img7.jpeg",
+  completedVilla: "/homes/img8.jpeg",
+  brickFront: "/homes/img9.jpeg",
 };
 
 export const showreelUrl = "/video/showreel.mp4";
 
 export const site = {
-  name: "Aspiring Homes",
-  short: "Aspiring",
-  fullName: "Aspiring Homes — Architecture, Interior & Construction",
-  tagline: "Making Quality Houses Since 2019",
+  name: "Shoaib Aluminum & Glass",
+  short: "Shoaib Aluminum",
+  fullName: "Shoaib Aluminum & Glass — Architectural Solutions",
+  tagline: "Precision in Every Frame",
   logo: img.logo,
-  address: "DHA Phase 6, Lahore, Punjab, Pakistan",
+  address: "New Super Town, Lahore, Punjab, Pakistan",
   addressShort: "New Super Town, Lahore",
-  email: "aspiringtalks@gmail.com",
+  email: "info@shoaibaluminumglass.com",
   phone: "0306 0221896",
   phoneTel: "+923060221896",
-  facebook: "https://facebook.com/AspiringHomes",
-  instagram: "https://instagram.com/aspiringhomesofficial",
-  youtube: "https://youtube.com/@AspiringHomes",
+  facebook: "https://facebook.com",
+  instagram: "https://instagram.com",
+  youtube: "https://youtube.com",
   whatsapp:
     "https://wa.me/923060221896?text=Hello%20Aspiring%20Homes%2C%20I%20would%20like%20to%20discuss%20a%20construction%20project.",
   hours: [

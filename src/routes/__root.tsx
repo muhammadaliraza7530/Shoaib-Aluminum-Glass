@@ -83,12 +83,12 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Aspiring Homes — Design & Construction Firm" },
+      { title: "Shoaib Aluminum & Glass — Architectural Solutions" },
       {
         name: "description",
-        content: "Making quality houses since 2019. Architecture, interiors and construction.",
+        content: "Premium aluminum fabrication, architectural glass and precision installation for homes and businesses.",
       },
-      { name: "author", content: "Aspiring Homes" },
+      { name: "author", content: "Shoaib Aluminum & Glass" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],

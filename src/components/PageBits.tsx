@@ -3,6 +3,30 @@ import { ArrowRight } from "lucide-react";
 import type { ReactNode } from "react";
 import { Reveal } from "@/components/ui-bits";
 
+export function ComingSoonPage({ image }: { image: string }) {
+  return (
+    <>
+      <PageHero
+        eyebrow="Coming soon"
+        title="Coming Soon"
+        intro="This page is being prepared. Please check back soon for the latest updates."
+        image={image}
+      />
+      <section className="py-20 lg:py-28">
+        <div className="mx-auto max-w-3xl px-5 text-center lg:px-8">
+          <div className="rounded-3xl border border-dashed border-primary/40 bg-primary/10 p-10 shadow-sm">
+            <p className="text-sm font-semibold uppercase tracking-[0.24em] text-primary">Under Construction</p>
+            <h2 className="mt-4 text-2xl font-bold sm:text-3xl">Something useful is on the way</h2>
+            <p className="mt-4 text-sm leading-relaxed text-muted-foreground sm:text-base">
+              We are updating this page with more details and a better experience for you.
+            </p>
+          </div>
+        </div>
+      </section>
+    </>
+  );
+}
+
 export function PageHero({
   eyebrow,
   title,

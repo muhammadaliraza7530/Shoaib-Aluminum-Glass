@@ -26,7 +26,7 @@ export function Header() {
         <Link to="/" className="group flex items-center gap-3" onClick={() => setOpen(false)}>
           <img
             src={site.logo}
-            alt="Aspiring Homes logo"
+            alt="Shoaib Aluminum & Glass logo"
             className="size-12 rounded-lg object-contain transition-transform duration-500 group-hover:scale-105 lg:size-14"
           />
           <span className="text-xs font-bold uppercase leading-tight tracking-[0.22em] sm:text-sm">
