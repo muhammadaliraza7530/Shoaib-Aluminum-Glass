@@ -1,6 +1,10 @@
-import { img, showreelUrl as reelUrl, process as processSteps, services as serviceList } from "@/lib/site-data";
+import {
+  img,
+  showreelUrl as reelUrl,
+  process as processSteps,
+  services as serviceList,
+} from "@/lib/site-data";
 
-export const logoUrl = img.logo;
 export const showreelUrl = reelUrl;
 
 export const company = {

@@ -50,7 +50,7 @@ export function VideoGallery() {
                 preload="metadata"
                 muted
                 onEnded={() => setActive(null)}
-                className="block h-full w-full object-cover"
+                className="block h-full w-full object-contain"
               />
             </div>
 

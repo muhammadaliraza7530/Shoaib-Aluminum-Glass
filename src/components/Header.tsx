@@ -24,12 +24,7 @@ export function Header() {
     >
       <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-5 lg:h-24 lg:px-8">
         <Link to="/" className="group flex items-center gap-3" onClick={() => setOpen(false)}>
-          <img
-            src={site.logo}
-            alt="Shoaib Aluminum & Glass logo"
-            className="size-12 rounded-lg object-contain transition-transform duration-500 group-hover:scale-105 lg:size-14"
-          />
-          <span className="text-xs font-bold uppercase leading-tight tracking-[0.22em] sm:text-sm">
+          <span className="max-w-[13rem] text-xs font-extrabold uppercase leading-tight tracking-[0.22em] text-foreground transition-colors group-hover:text-primary sm:text-sm">
             {site.name}
           </span>
         </Link>

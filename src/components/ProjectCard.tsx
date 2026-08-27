@@ -8,12 +8,12 @@ export function ProjectCard({ project }: { project: Project }) {
       params={{ slug: project.slug }}
       className="group block overflow-hidden rounded-sm border border-border bg-surface"
     >
-      <div className="relative aspect-4/3 overflow-hidden">
+      <div className="relative aspect-[4/3] overflow-hidden bg-black/10">
         <img
           src={project.image}
           alt={`${project.title}, ${project.location}`}
           loading="lazy"
-          className="size-full object-cover transition-transform duration-700 group-hover:scale-105"
+          className="size-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
         />
         <span className="absolute left-3 top-3 rounded-sm bg-background/80 px-2.5 py-1 text-[0.65rem] font-semibold uppercase tracking-[0.16em] text-primary backdrop-blur">
           {project.status}

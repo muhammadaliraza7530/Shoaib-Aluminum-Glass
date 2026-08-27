@@ -7,13 +7,14 @@ export function Footer() {
     <footer className="border-t border-border bg-card/40">
       <div className="mx-auto grid max-w-7xl gap-10 px-5 py-16 lg:grid-cols-4 lg:px-8">
         <div className="lg:col-span-2">
-          <div className="flex items-center gap-3">
-            <img src={site.logo} alt="Shoaib Aluminum & Glass logo" className="size-14 rounded-lg object-contain" />
-            <span className="text-sm font-bold uppercase tracking-[0.22em]">{site.name}</span>
+          <div>
+            <span className="text-sm font-extrabold uppercase tracking-[0.22em] text-foreground">
+              {site.name}
+            </span>
           </div>
           <p className="mt-5 max-w-md text-sm leading-relaxed text-muted-foreground">
-            {site.tagline}. Premium aluminum fabrication, glass work and architectural solutions across Lahore and
-            Punjab.
+            {site.tagline}. Premium aluminum fabrication, glass work and architectural solutions
+            across Lahore and Punjab.
           </p>
           <div className="mt-6 flex flex-wrap gap-3 text-xs font-semibold uppercase tracking-[0.16em]">
             {[
@@ -40,7 +41,10 @@ export function Footer() {
           <ul className="mt-5 space-y-3">
             {navLinks.map((l) => (
               <li key={l.to}>
-                <Link to={l.to} className="text-sm text-muted-foreground transition-colors hover:text-primary">
+                <Link
+                  to={l.to}
+                  className="text-sm text-muted-foreground transition-colors hover:text-primary"
+                >
                   {l.label}
                 </Link>
               </li>
@@ -71,7 +75,9 @@ export function Footer() {
         </div>
 
         <div>
-          <h3 className="text-xs font-bold uppercase tracking-[0.28em] text-primary">Operating hours</h3>
+          <h3 className="text-xs font-bold uppercase tracking-[0.28em] text-primary">
+            Operating hours
+          </h3>
           <ul className="mt-5 space-y-3 text-sm text-muted-foreground">
             {site.hours.map((hours) => (
               <li key={hours.day} className="flex justify-between gap-4">

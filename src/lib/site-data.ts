@@ -5,20 +5,24 @@
  */
 
 export const img = {
-  logo: "/logo.jpg",
-
-  // Photoreal hero / feature photography
-  spanishVilla: "/homes/img2.jpeg",
-  luxuryVilla: "/homes/img1.jpeg",
-  luxuryHouse: "/homes/img3.jpeg",
-  courtyard: "/homes/img4.jpeg",
-
-  // Real house photography
-  modernVilla: "/homes/img5.jpeg",
-  classicMansion: "/homes/img6.jpeg",
-  greyClassic: "/homes/img7.jpeg",
-  completedVilla: "/homes/img8.jpeg",
-  brickFront: "/homes/img9.jpeg",
+  spanishVilla:
+    "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=2400&q=90",
+  luxuryVilla:
+    "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=2400&q=90",
+  luxuryHouse:
+    "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=2400&q=90",
+  courtyard:
+    "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=2400&q=90",
+  modernVilla:
+    "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=2400&q=90",
+  classicMansion:
+    "https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=2400&q=90",
+  greyClassic:
+    "https://images.unsplash.com/photo-1511818966892-d7d671e672a2?auto=format&fit=crop&w=2400&q=90",
+  completedVilla:
+    "https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?auto=format&fit=crop&w=2400&q=90",
+  brickFront:
+    "https://images.unsplash.com/photo-1600047509782-20d39509f26d?auto=format&fit=crop&w=2400&q=90",
 };
 
 export const showreelUrl = "/video/showreel.mp4";
@@ -28,7 +32,6 @@ export const site = {
   short: "Shoaib Aluminum",
   fullName: "Shoaib Aluminum & Glass — Architectural Solutions",
   tagline: "Precision in Every Frame",
-  logo: img.logo,
   address: "New Super Town, Lahore, Punjab, Pakistan",
   addressShort: "New Super Town, Lahore",
   email: "info@shoaibaluminumglass.com",
@@ -55,33 +58,6 @@ export const navLinks = [
   { to: "/contact", label: "Contact" },
 ];
 
-export const heroSlides = [
-  {
-    title: "We design and build the home you keep imagining",
-    highlight:
-      "Architecture, interiors and full construction — planned, drawn and executed by one team from concept to handover.",
-    image: img.luxuryVilla,
-  },
-  {
-    title: "Spanish, classical and modern homes",
-    highlight:
-      "Arched colonnades, terracotta roofs or sharp contemporary lines — we build the language your family loves.",
-    image: img.spanishVilla,
-  },
-  {
-    title: "Making quality houses since 2019",
-    highlight:
-      "From the first 2D plan to the final coat of paint, our designers and site teams turn your plot into a home.",
-    image: img.luxuryHouse,
-  },
-  {
-    title: "Concept to creation, under one roof",
-    highlight:
-      "Grey structure, finishing, interiors and 3D visualisation delivered across Lahore, Faisalabad and Sialkot.",
-    image: img.courtyard,
-  },
-];
-
 export const stats = [
   { value: "2019", label: "Building since" },
   { value: "50+", label: "Homes designed & built" },
@@ -90,22 +66,82 @@ export const stats = [
 
 /** Branded social posts — shown full-frame, never cropped. */
 export const posts = [
-  { image: "/posts/post-1.jpg", title: "Modern Facade Residence", location: "Sialkot", tag: "Coming Soon" },
-  { image: "/posts/post-2.jpg", title: "Crafting Classic Beauty", location: "Lahore", tag: "In Progress" },
-  { image: "/posts/post-3.jpg", title: "Concept to Creation", location: "Lahore", tag: "In Progress" },
-  { image: "/posts/post-4.jpg", title: "Classical Grand Residence", location: "Faisalabad", tag: "Coming Soon" },
-  { image: "/posts/post-5.jpg", title: "Classic Villa Handover", location: "Lahore", tag: "Completed" },
-  { image: "/posts/post-6.jpg", title: "Building Dreams", location: "Lahore", tag: "Under Construction" },
-  { image: "/posts/post-7.jpg", title: "Constructing Excellence", location: "Lahore", tag: "Under Construction" },
-  { image: "/posts/post-8.jpg", title: "The Reflection — Night", location: "Sialkot", tag: "Coming Soon" },
-  { image: "/posts/post-9.jpg", title: "The Reflection — Duplex", location: "Sialkot", tag: "Coming Soon" },
+  {
+    image: img.modernVilla,
+    title: "Modern Facade Residence",
+    location: "Sialkot",
+    tag: "Coming Soon",
+  },
+  {
+    image: img.classicMansion,
+    title: "Crafting Classic Beauty",
+    location: "Lahore",
+    tag: "In Progress",
+  },
+  { image: img.luxuryHouse, title: "Concept to Creation", location: "Lahore", tag: "In Progress" },
+  {
+    image: img.courtyard,
+    title: "Classical Grand Residence",
+    location: "Faisalabad",
+    tag: "Coming Soon",
+  },
+  {
+    image: img.completedVilla,
+    title: "Classic Villa Handover",
+    location: "Lahore",
+    tag: "Completed",
+  },
+  {
+    image: img.brickFront,
+    title: "Building Dreams",
+    location: "Lahore",
+    tag: "Under Construction",
+  },
+  {
+    image: img.spanishVilla,
+    title: "Constructing Excellence",
+    location: "Lahore",
+    tag: "Under Construction",
+  },
+  {
+    image: img.luxuryVilla,
+    title: "The Reflection — Night",
+    location: "Sialkot",
+    tag: "Coming Soon",
+  },
+  {
+    image: img.greyClassic,
+    title: "The Reflection — Duplex",
+    location: "Sialkot",
+    tag: "Coming Soon",
+  },
 ];
 
 export const videoGallery = [
-  { src: "/videogrally/video1.mp4", poster: img.luxuryVilla, title: "Project Showreel", caption: "Design to handover" },
-  { src: "/videogrally/video2.mp4", poster: img.spanishVilla, title: "Spanish Villa Walkthrough", caption: "Elevation study" },
-  { src: "/videogrally/video3.mp4", poster: img.luxuryHouse, title: "Site Progress Film", caption: "Grey structure" },
-  { src: "/videogrally/video4.mp4", poster: img.courtyard, title: "Interior Reveal", caption: "Finishing stage" },
+  {
+    src: "/videogrally/video1.mp4",
+    poster: img.luxuryVilla,
+    title: "Project Showreel",
+    caption: "Design to handover",
+  },
+  {
+    src: "/videogrally/video2.mp4",
+    poster: img.spanishVilla,
+    title: "Spanish Villa Walkthrough",
+    caption: "Elevation study",
+  },
+  {
+    src: "/videogrally/video3.mp4",
+    poster: img.luxuryHouse,
+    title: "Site Progress Film",
+    caption: "Grey structure",
+  },
+  {
+    src: "/videogrally/video4.mp4",
+    poster: img.courtyard,
+    title: "Interior Reveal",
+    caption: "Finishing stage",
+  },
 ];
 
 export const testimonials = [
@@ -196,10 +232,26 @@ export const registrations = [
 ];
 
 export const process = [
-  { step: "01", title: "Consultation", body: "We discuss your plot, budget and requirements — in person or on WhatsApp." },
-  { step: "02", title: "Design", body: "Floor plans and 3D elevations are developed until you approve every detail." },
-  { step: "03", title: "Execution", body: "Grey structure and finishing delivered by our own supervised site teams." },
-  { step: "04", title: "Handover", body: "Final finishing, cleaning and a walk-through before your keys are handed over." },
+  {
+    step: "01",
+    title: "Consultation",
+    body: "We discuss your plot, budget and requirements — in person or on WhatsApp.",
+  },
+  {
+    step: "02",
+    title: "Design",
+    body: "Floor plans and 3D elevations are developed until you approve every detail.",
+  },
+  {
+    step: "03",
+    title: "Execution",
+    body: "Grey structure and finishing delivered by our own supervised site teams.",
+  },
+  {
+    step: "04",
+    title: "Handover",
+    body: "Final finishing, cleaning and a walk-through before your keys are handed over.",
+  },
 ];
 
 export const galleryImages = [
