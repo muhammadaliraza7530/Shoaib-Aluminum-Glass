@@ -10,7 +10,7 @@ export const company = {
   phoneDisplay: "0306 0221896",
   phoneTel: "+923060221896",
   whatsapp:
-    "https://wa.me/923060221896?text=Hello%20Aspiring%20Homes%2C%20I%20would%20like%20to%20discuss%20a%20construction%20project.",
+    "https://wa.me/923405880689?text=Hello%20Shoaib%20Aluminum%20%26%20Glass%2C%20I%20would%20like%20to%20discuss%20a%20project.",
   email: "aspiringtalks@gmail.com",
   addressShort: "New Super Town, Lahore",
   address: "DHA Phase 6, Lahore, Punjab, Pakistan",

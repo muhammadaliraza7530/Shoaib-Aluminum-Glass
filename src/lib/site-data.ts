@@ -38,7 +38,7 @@ export const site = {
   instagram: "https://instagram.com",
   youtube: "https://youtube.com",
   whatsapp:
-    "https://wa.me/923060221896?text=Hello%20Aspiring%20Homes%2C%20I%20would%20like%20to%20discuss%20a%20construction%20project.",
+    "https://wa.me/923405880689?text=Hello%20Shoaib%20Aluminum%20%26%20Glass%2C%20I%20would%20like%20to%20discuss%20a%20project.",
   hours: [
     { day: "Monday to Thursday", time: "9am to 7pm" },
     { day: "Friday", time: "9am to 12pm & 3pm to 7pm" },

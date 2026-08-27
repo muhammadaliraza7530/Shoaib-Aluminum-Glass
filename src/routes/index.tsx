@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, Check, ChevronRight, Phone, Quote } from "lucide-react";
-import { useState } from "react";
-import { img, site } from "@/lib/site-data";
+import { ArrowRight, ChevronRight, Phone, Quote, X } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
+import { img, showreelUrl, site } from "@/lib/site-data";
 import { Reveal, SectionHeading } from "@/components/ui-bits";
 import { AutoScroller } from "@/components/AutoScroller";
 
@@ -28,39 +28,28 @@ const services = [
   {
     title: "Aluminum Doors & Windows",
     description: "High-performance framing systems that make every opening feel intentional.",
-    features: ["Sliding, casement and folding systems", "Thermal and weather-resistant profiles", "Precision hardware and smooth operation"],
     image: img.luxuryVilla,
   },
   {
     title: "Architectural Glass & Curtain Walls",
     description: "Clean, light-filled facades for contemporary homes and commercial spaces.",
-    features: ["Structural glazing and curtain walls", "Frameless storefront solutions", "Safe, engineered glass assemblies"],
     image: img.modernVilla,
   },
   {
     title: "Shower Enclosures & Partitions",
     description: "Minimal glass details that bring clarity and privacy to everyday spaces.",
-    features: ["Frameless shower enclosures", "Office and retail partitions", "Custom fittings and polished edges"],
     image: img.courtyard,
   },
   {
     title: "Custom Glass & Mirror Work",
     description: "Made-to-measure glass elements that finish a room with confidence.",
-    features: ["Toughened and tempered glass", "Custom mirrors and feature panels", "Precision cutting for any dimension"],
     image: img.classicMansion,
   },
   {
     title: "Maintenance & Installation",
     description: "Professional fitting and dependable aftercare from the same team.",
-    features: ["On-site measurement and planning", "Careful installation and sealing", "Repairs, adjustments and maintenance"],
     image: img.brickFront,
   },
-];
-
-const projects = [
-  { title: "Contemporary Residence", category: "Residential", image: img.modernVilla },
-  { title: "Frameless Office Front", category: "Commercial", image: img.luxuryHouse },
-  { title: "Statement Mirror Wall", category: "Custom Glass", image: img.classicMansion },
 ];
 
 const testimonials = [
@@ -70,9 +59,38 @@ const testimonials = [
 ];
 
 function HomePage() {
-  const [activeCategory, setActiveCategory] = useState("All");
-  const categories = ["All", "Residential", "Commercial", "Custom Glass"];
-  const visibleProjects = activeCategory === "All" ? projects : projects.filter((project) => project.category === activeCategory);
+  const [videoOpen, setVideoOpen] = useState(false);
+  const showreelRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    if (!videoOpen) return;
+    const onKey = (e: KeyboardEvent) => e.key === "Escape" && setVideoOpen(false);
+    document.body.style.overflow = "hidden";
+    window.addEventListener("keydown", onKey);
+    return () => {
+      document.body.style.overflow = "";
+      window.removeEventListener("keydown", onKey);
+    };
+  }, [videoOpen]);
+
+  useEffect(() => {
+    const video = showreelRef.current;
+    if (!video) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          video.play().catch(() => {});
+        } else {
+          video.pause();
+        }
+      },
+      { threshold: 0.5 }
+    );
+
+    observer.observe(video);
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <>
@@ -87,24 +105,51 @@ function HomePage() {
             <p className="mt-6 max-w-2xl text-base leading-relaxed text-gray-300 sm:text-lg">Premium aluminum fabrication, architectural glass and precision installation for homes, businesses and bold spaces.</p>
             <div className="mt-9 flex flex-wrap gap-3">
               <a href={`tel:${site.phoneTel}`} className="inline-flex items-center gap-2 rounded-full bg-primary px-7 py-4 text-xs font-bold uppercase tracking-[0.16em] text-primary-foreground transition-colors hover:bg-accent"><Phone className="size-4" /> Get a Free Quote</a>
-              <Link to="/projects" className="inline-flex items-center gap-2 rounded-full border border-primary/60 px-7 py-4 text-xs font-bold uppercase tracking-[0.16em] text-primary transition-colors hover:bg-primary hover:text-primary-foreground">Explore Our Projects <ArrowRight className="size-4" /></Link>
+              <Link to="/projects" className="inline-flex items-center gap-2 rounded-full border border-border px-7 py-4 text-xs font-bold uppercase tracking-[0.16em] text-muted-foreground transition-colors hover:border-primary hover:text-primary">Explore Our Projects <ArrowRight className="size-4" /></Link>
             </div>
           </Reveal>
         </div>
       </section>
 
+      <section className="relative overflow-hidden bg-black py-20 lg:py-28">
+        <div className="mx-auto max-w-7xl px-5 text-center lg:px-8">
+          <Reveal>
+            <p className="text-xs font-bold uppercase tracking-[0.32em] text-primary">Showreel</p>
+            <h2 className="mt-4 text-3xl font-extrabold sm:text-5xl">See how we build</h2>
+            <p className="mx-auto mt-4 max-w-xl text-sm leading-relaxed text-muted-foreground">A short film of our sites, elevations and finished homes.</p>
+            <div className="group relative mx-auto mt-10 block aspect-[9/16] w-full max-w-[320px] overflow-hidden rounded-3xl border border-primary/40 bg-card shadow-2xl">
+              <video
+                ref={showreelRef}
+                src={showreelUrl}
+                poster={img.luxuryVilla}
+                playsInline
+                loop
+                className="size-full object-cover transition-transform duration-700 group-hover:scale-105"
+              />
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      {videoOpen && (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 p-4 backdrop-blur-sm" role="dialog" aria-modal="true" aria-label="Showreel video" onClick={() => setVideoOpen(false)}>
+          <button type="button" aria-label="Close video" onClick={() => setVideoOpen(false)} className="absolute right-5 top-5 grid size-11 place-items-center rounded-full border border-primary/60 text-primary transition-colors hover:bg-primary hover:text-primary-foreground"><X className="size-5" /></button>
+          <div className="w-full max-w-4xl" onClick={(e) => e.stopPropagation()}>
+            <video src={showreelUrl} poster={img.luxuryVilla} controls autoPlay playsInline className="w-full max-h-[80vh] rounded-2xl border border-primary/40 shadow-2xl" />
+          </div>
+        </div>
+      )}
+
       <section className="py-20 lg:py-28">
         <div className="mx-auto max-w-7xl px-5 lg:px-8"><SectionHeading eyebrow="What we do" title="Complete solutions in aluminum and glass" intro="Designed around your space, fabricated with care and installed to perform." /></div>
         <div className="mt-12">
-          <AutoScroller speed={55}>
-            {services.map((service) => <article key={service.title} className="lit-panel flex w-[290px] shrink-0 flex-col overflow-hidden bg-card sm:w-[360px]"><img src={service.image} alt={service.title} loading="lazy" className="aspect-[16/10] w-full shrink-0 object-cover" /><div className="p-6"><h3 className="text-xl font-bold">{service.title}</h3><p className="mt-3 text-sm leading-relaxed text-muted-foreground">{service.description}</p><ul className="mt-5 space-y-2">{service.features.map((feature) => <li key={feature} className="flex gap-2 text-xs text-foreground/80"><Check className="mt-0.5 size-4 shrink-0 text-primary" />{feature}</li>)}</ul></div></article>)}
+          <AutoScroller speed={100}>
+            {services.map((service) => <article key={service.title} className="lit-panel flex w-[290px] shrink-0 flex-col overflow-hidden bg-card sm:w-[360px]"><img src={service.image} alt={service.title} loading="lazy" className="aspect-[16/10] w-full shrink-0 object-cover" /><div className="p-6"><h3 className="text-xl font-bold">{service.title}</h3><p className="mt-3 text-sm leading-relaxed text-muted-foreground">{service.description}</p></div></article>)}
           </AutoScroller>
         </div>
       </section>
 
-      <section className="border-y border-border bg-card/30 py-20 lg:py-28"><div className="mx-auto max-w-7xl px-5 lg:px-8"><SectionHeading eyebrow="Why choose us" title="The detail is in the difference." /><div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">{["Premium Quality Materials & Finish", "Expert Fabrication & Precision Installation", "Competitive Pricing & On-Time Delivery", "Custom Designs Tailored to Your Specs"].map((item, index) => <Reveal key={item} delay={index * 80}><div className="lit-panel h-full bg-card p-6"><span className="text-4xl font-extrabold text-primary/30">0{index + 1}</span><h3 className="mt-5 text-base font-bold leading-snug">{item}</h3><ChevronRight className="mt-8 size-5 text-primary" /></div></Reveal>)}</div></div></section>
-
-      <section className="py-20 lg:py-28"><div className="mx-auto max-w-7xl px-5 lg:px-8"><SectionHeading eyebrow="Featured projects" title="A glimpse of what we can create" intro="Explore a selection of residential, commercial and custom glass work." /><div className="mt-8 flex flex-wrap gap-2">{categories.map((category) => <button key={category} type="button" onClick={() => setActiveCategory(category)} className={`rounded-full border px-4 py-2 text-xs font-bold uppercase tracking-[0.14em] transition-colors ${activeCategory === category ? "border-primary bg-primary text-primary-foreground" : "border-border text-muted-foreground hover:border-primary hover:text-primary"}`}>{category}</button>)}</div><div className="mt-8 grid gap-5 md:grid-cols-3">{visibleProjects.map((project) => <Reveal key={project.title}><article className="group lit-panel overflow-hidden bg-card"><img src={project.image} alt={project.title} loading="lazy" className="aspect-[4/3] w-full object-cover transition-transform duration-700 group-hover:scale-105" /><div className="p-5"><p className="text-[10px] font-bold uppercase tracking-[0.22em] text-primary">{project.category}</p><h3 className="mt-2 text-lg font-bold">{project.title}</h3></div></article></Reveal>)}</div></div></section>
+      <section className="border-y border-border bg-card/30 py-20 lg:py-28"><div className="mx-auto max-w-7xl px-5 lg:px-8"><SectionHeading eyebrow="Why choose us" title="The detail is in the difference." /><div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">{"Premium Quality Materials & Finish Expert Fabrication & Precision Installation Competitive Pricing & On-Time Delivery Custom Designs Tailored to Your Specs".split("  ").map((item, index) => <Reveal key={item} delay={index * 80}><div className="lit-panel h-full bg-card p-6"><span className="text-4xl font-extrabold text-primary/30">0{index + 1}</span><h3 className="mt-5 text-base font-bold leading-snug">{item}</h3><ChevronRight className="mt-8 size-5 text-primary" /></div></Reveal>)}</div></div></section>
 
       <section className="border-y border-border bg-card/30 py-20 lg:py-28"><div className="mx-auto max-w-7xl px-5 lg:px-8"><SectionHeading eyebrow="Client reviews" title="Work that earns its place." /><div className="mt-12 grid gap-5 lg:grid-cols-3">{testimonials.map((testimonial) => <Reveal key={testimonial.name}><blockquote className="lit-panel h-full bg-card p-7"><Quote className="size-8 text-primary/70" /><p className="mt-6 text-sm leading-relaxed text-foreground/85">“{testimonial.quote}”</p><footer className="mt-7 border-t border-border pt-5"><p className="text-sm font-bold">{testimonial.name}</p><p className="mt-1 text-xs text-muted-foreground">{testimonial.role}</p></footer></blockquote></Reveal>)}</div></div></section>
 
